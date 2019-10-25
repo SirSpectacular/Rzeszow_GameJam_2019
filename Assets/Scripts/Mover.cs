@@ -20,7 +20,7 @@ namespace PlatformShift.Move {
         [SerializeField] float shortJumpMultiplayer = 4f;
 
         public UnityEvent onPlatformHit;
-
+        public UnityEvent onPlatformLeft;
        
         private bool isOnPlatform = false;
         private Rigidbody2D rigidBody = null;
@@ -29,6 +29,7 @@ namespace PlatformShift.Move {
         void Awake() {
             rigidBody = GetComponent<Rigidbody2D>();
             onPlatformHit = new UnityEvent();
+            onPlatformLeft = new UnityEvent();
         }
 
         void Update() {
@@ -37,9 +38,6 @@ namespace PlatformShift.Move {
 
             isOnPlatform = false;
             isOnPlatform = (Physics2D.Raycast(platformCheckPointLeft, -Vector2.up, platformCheckRadious) || Physics2D.Raycast(platformCheckPointRight, -Vector2.up, platformCheckRadious));
-
-            
-
 
         }
 
@@ -74,6 +72,12 @@ namespace PlatformShift.Move {
 
         private void OnCollisionExit2D(Collision2D collision) {
             transform.SetParent(null);
+
+            if (collision.gameObject.GetComponentInParent<FragilePlatform>() != null) {
+                Destroy(collision.gameObject);
+            }
+
+            onPlatformLeft.Invoke();
         }
     }
 }
