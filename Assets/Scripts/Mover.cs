@@ -37,10 +37,6 @@ namespace PlatformShift.Move {
 
             isOnPlatform = false;
             isOnPlatform = (Physics2D.Raycast(platformCheckPointLeft, -Vector2.up, platformCheckRadious) || Physics2D.Raycast(platformCheckPointRight, -Vector2.up, platformCheckRadious));
-
-            
-
-
         }
 
         public void Move(float horizontalInput, bool jumpInput, bool jumpPressed) {
