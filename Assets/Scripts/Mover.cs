@@ -11,8 +11,12 @@ namespace PlatformShift.Move {
         [SerializeField] float jumpForce = 500;
         [SerializeField] float smoothTime = 0.03F;
         [SerializeField] LayerMask platform;
-        [SerializeField] Transform platformCheckTransform;
-        [SerializeField] float platformCheckRadious;
+        [SerializeField] Transform platformCheckTransform = null;
+        [SerializeField] float platformCheckRadious = 0.1f;
+        [SerializeField] float fallMultiplayer = 3f;
+        [SerializeField] float shortJumpMultiplayer = 4f;
+
+        public Event onPlatformHit;
 
         Vector2 platformCheckPoint;
         private bool isOnPlatform = false;
@@ -23,25 +27,25 @@ namespace PlatformShift.Move {
             rigidBody = GetComponent<Rigidbody2D>();
 
         }
-        private void Start() {
-           
-        }
 
         void Update() {
             platformCheckPoint = platformCheckTransform.position;
 
             isOnPlatform = false;
             isOnPlatform = Physics2D.Raycast(platformCheckPoint, -Vector2.up, platformCheckRadious);
-            Debug.DrawRay(platformCheckPoint, -Vector2.up, Color.green);
-            print(isOnPlatform);
 
 
-            if (rigidBody.velocity.y < 0) {
-                rigidBody.velocity += (Vector2.up * Physics2D.gravity.y * 2 * Time.deltaTime);
-            }
+
         }
 
-        public void Move(float horizontalInput, bool jumpInput ) {
+        public void Move(float horizontalInput, bool jumpInput, bool jumpPressed) {
+
+            if (rigidBody.velocity.y < 0) {
+                rigidBody.velocity += (Vector2.up * Physics2D.gravity.y * fallMultiplayer * Time.fixedDeltaTime);
+            }
+            if (rigidBody.velocity.y >0 && !jumpPressed) {
+                rigidBody.velocity += (Vector2.up * Physics2D.gravity.y * shortJumpMultiplayer * Time.fixedDeltaTime);              
+            }
 
             float verticalVelocity = rigidBody.velocity.y;
 
