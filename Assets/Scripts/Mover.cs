@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace PlatformShift.Move {
 
@@ -11,29 +12,33 @@ namespace PlatformShift.Move {
         [SerializeField] float jumpForce = 500;
         [SerializeField] float smoothTime = 0.03F;
         [SerializeField] LayerMask platform;
-        [SerializeField] Transform platformCheckTransform = null;
+        [SerializeField] Transform platformCheckTransformLeft = null;
+        [SerializeField] Transform platformCheckTransformRight = null;
+
         [SerializeField] float platformCheckRadious = 0.1f;
         [SerializeField] float fallMultiplayer = 3f;
         [SerializeField] float shortJumpMultiplayer = 4f;
 
-        public Event onPlatformHit;
+        public UnityEvent onPlatformHit;
 
-        Vector2 platformCheckPoint;
+       
         private bool isOnPlatform = false;
         private Rigidbody2D rigidBody = null;
         private Vector2 currentVelocity = Vector2.zero;
         
         void Awake() {
             rigidBody = GetComponent<Rigidbody2D>();
-
+            onPlatformHit = new UnityEvent();
         }
 
         void Update() {
-            platformCheckPoint = platformCheckTransform.position;
+            Vector2 platformCheckPointLeft = platformCheckTransformLeft.position;
+            Vector2 platformCheckPointRight = platformCheckTransformRight.position;
 
             isOnPlatform = false;
-            isOnPlatform = Physics2D.Raycast(platformCheckPoint, -Vector2.up, platformCheckRadious);
+            isOnPlatform = (Physics2D.Raycast(platformCheckPointLeft, -Vector2.up, platformCheckRadious) || Physics2D.Raycast(platformCheckPointRight, -Vector2.up, platformCheckRadious));
 
+            
 
 
         }
@@ -60,6 +65,15 @@ namespace PlatformShift.Move {
                 rigidBody.AddForce(new Vector2(0f, jumpForce));
                 isOnPlatform = false;
             }
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision) {
+            transform.SetParent(collision.gameObject.transform);
+            onPlatformHit.Invoke();
+        }
+
+        private void OnCollisionExit2D(Collision2D collision) {
+            transform.SetParent(null);
         }
     }
 }

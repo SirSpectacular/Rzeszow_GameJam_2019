@@ -14,9 +14,10 @@ namespace PlatformShift.Controll {
 
 
         private void Update() {
-            jumpInput = Input.GetButtonDown("Jump");
+            if(!jumpInput)
+                jumpInput = Input.GetButtonDown("Jump");
             horizontalInput = Input.GetAxis("Horizontal");
-            jumpPressed = Input.GetButton("Jump");
+            jumpPressed = Input.GetButton("Jump"); 
         }
         private void FixedUpdate() {
             mover.Move(horizontalInput * runSpeed, jumpInput,jumpPressed);
