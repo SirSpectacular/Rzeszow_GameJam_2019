@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlatformMovement : MonoBehaviour
 {
     public MovePattern movePattern;
-    public float timeScale;
+    public GameState timeScaleProvider;
     public bool freezed;
     public float baseSpeed;
 
@@ -22,7 +22,7 @@ public class PlatformMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if(!freezed)
-            movePattern.step(Time.fixedDeltaTime * timeScale * baseSpeed);
+            movePattern.step(Time.fixedDeltaTime * timeScaleProvider.timeScale * baseSpeed);
     }
 
 
