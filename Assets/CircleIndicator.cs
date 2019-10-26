@@ -10,7 +10,7 @@ public class CircleIndicator : MonoBehaviour
     void Start()
     {
         float radius = (center.position - platform.position).magnitude;
-        transform.localScale = new Vector3(transform.localScale.x * radius, transform.localScale.y * radius, 0f);
+        transform.localScale = new Vector3(transform.localScale.x * radius * 2, transform.localScale.y * radius * 2, 0f);
         transform.position = center.position;
     }
 

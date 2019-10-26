@@ -11,7 +11,7 @@ public class LinearIndicator : MonoBehaviour
     void Start()
     {
         Vector3 diff = pointA.position - pointB.position;
-        float angle = Mathf.Atan2(diff.y, diff.x);
+        float angle = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
         float len = diff.magnitude;
 
         transform.localEulerAngles = new Vector3(0, 0, angle);
