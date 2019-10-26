@@ -9,7 +9,7 @@ public class LinearMovePattern : MovePattern
     private Transform moveTowards;
     private float stepSupression = 0.01f;
 
-    void Start()
+    void Awake()
     {
         moveTowards = pointA;
     }
