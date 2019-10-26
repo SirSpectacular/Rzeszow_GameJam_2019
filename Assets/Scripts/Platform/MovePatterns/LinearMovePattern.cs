@@ -7,10 +7,9 @@ public class LinearMovePattern : MovePattern
     public Transform pointA;
     public Transform pointB;
     private Transform moveTowards;
-    private float epsilon = 0.01f;
     private float stepSupression = 0.01f;
 
-    void Start()
+    void Awake()
     {
         moveTowards = pointA;
     }
@@ -20,7 +19,7 @@ public class LinearMovePattern : MovePattern
         Vector3 move = (moveTowards.position - transform.position).normalized * stepSize * stepSupression;
         transform.Translate(move);
 
-        if ((moveTowards.position - transform.position).magnitude < epsilon)
+        if ((moveTowards.position - transform.position).magnitude < move.magnitude  )
         {
             if (moveTowards == pointA)
             {
