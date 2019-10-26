@@ -235,7 +235,10 @@ MonoBehaviour:
   onPlatformHit:
     m_PersistentCalls:
       m_Calls: []
+<<<<<<< HEAD
   animator: {fileID: 6955507382310315219}
+=======
+>>>>>>> 0b938b1d3bf8410919f0c2e3b3205f9d6bcf0f06
 --- !u!96 &89730340383394678
 TrailRenderer:
   serializedVersion: 2
