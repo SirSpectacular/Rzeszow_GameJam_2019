@@ -11,14 +11,11 @@ public class LinearMovePattern : MovePattern
 
     void Start()
     {
-        Debug.Log("ok");
         moveTowards = pointA;
     }
 
     public override void step(float stepSize) 
     {
-        Debug.Log("ok");
-
         Vector3 move = (moveTowards.position - transform.position).normalized * stepSize * stepSupression;
         transform.Translate(move);
 
