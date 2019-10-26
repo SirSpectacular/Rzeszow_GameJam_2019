@@ -1,5 +1,6 @@
 ﻿using PlatformShift.Move;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace PlatformShift.Controll {
 
@@ -18,6 +19,10 @@ namespace PlatformShift.Controll {
                 jumpInput = Input.GetButtonDown("Jump");
             horizontalInput = Input.GetAxis("Horizontal");
             jumpPressed = Input.GetButton("Jump"); 
+
+            if (Input.GetButtonDown("Cancel")) {
+                SceneManager.LoadScene(0);
+            }
         }
         private void FixedUpdate() {
             mover.Move(horizontalInput * runSpeed, jumpInput,jumpPressed);
