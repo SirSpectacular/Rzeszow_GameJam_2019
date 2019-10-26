@@ -19,7 +19,6 @@ public class Score : MonoBehaviour{
         score += Time.deltaTime * Random.RandomRange(0f, 10f) * Mathf.Max(transform.position.y - prevPosition.y, 0f);
 
         scoreText.text = string.Format("{0:0}", score);
-        print(score);
     }
 
 }
