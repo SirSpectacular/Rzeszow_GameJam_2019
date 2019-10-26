@@ -251,6 +251,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   animator: {fileID: 7103372450024271357}
+  renderer: {fileID: 7768836406949529905}
 --- !u!96 &89730340383394678
 TrailRenderer:
   serializedVersion: 2

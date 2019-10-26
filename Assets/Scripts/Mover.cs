@@ -22,6 +22,7 @@ namespace PlatformShift.Move {
         public UnityEvent onPlatformHit;
         public UnityEvent onPlatformLeft;
         [SerializeField] public Animator animator;
+        public SpriteRenderer renderer;
 
        
         private bool isOnPlatform = false;
@@ -55,6 +56,16 @@ namespace PlatformShift.Move {
                 rigidBody.velocity += (Vector2.up * Physics2D.gravity.y * shortJumpMultiplayer * Time.fixedDeltaTime);              
             }
 
+            if (rigidBody.velocity.x < -0.1)
+            {
+                renderer.flipX = true;
+            }
+            if (rigidBody.velocity.x > 0.1)
+            {
+                renderer.flipX = false;
+            }
+
+
 
             float verticalVelocity = rigidBody.velocity.y;
 
@@ -71,7 +82,7 @@ namespace PlatformShift.Move {
             }
          
         }
-
+    
         private void OnCollisionEnter2D(Collision2D collision) {
             transform.SetParent(collision.gameObject.transform);
             onPlatformHit.Invoke();
