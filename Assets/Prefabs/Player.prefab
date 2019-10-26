@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 719110048}
   - component: {fileID: 719110049}
   - component: {fileID: 89730340383394678}
-  - component: {fileID: 6955507382310315219}
+  - component: {fileID: 6634753146931487114}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -235,7 +235,7 @@ MonoBehaviour:
   onPlatformHit:
     m_PersistentCalls:
       m_Calls: []
-  animator: {fileID: 6955507382310315219}
+  animator: {fileID: 6634753146931487114}
   onPlatformLeft:
     m_PersistentCalls:
       m_Calls:
@@ -347,7 +347,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!95 &6955507382310315219
+--- !u!95 &6634753146931487114
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
