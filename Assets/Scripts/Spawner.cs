@@ -12,20 +12,23 @@ public class Spawner : MonoBehaviour
     public float speed;
     private float speedSum;
     public GameObject Player;
+    private float nextHeight;
+    private float currHeight;
     void Start()
     {
         GameObject newPacket = Instantiate(packets[0]);
         spawnedPackets.Add(newPacket);
+        nextHeight = 10;
+        currHeight = 0;
 
         for(int i = 0; i< 4; i++)
         {
-            newPacket = Instantiate(packets[Random.Range(1, packets.Count - 1)]);
+            int rnd = Random.Range(1, packets.Count - 1);
+            newPacket = Instantiate(packets[rnd]);
             spawnedPackets.Add(newPacket);
-            if(i != 0)
-                newPacket.transform.position = new Vector2(0, spawnedPackets[spawnedPackets.Count - 1].transform.position.y + spawnedPackets[spawnedPackets.Count - 1].GetComponent<PackageHeight>().height * (1+i));
-            else
-                newPacket.transform.position = new Vector2(0, spawnedPackets[spawnedPackets.Count - 1].transform.position.y + spawnedPackets[spawnedPackets.Count - 1].GetComponent<PackageHeight>().height * (1 + i) -14);
-
+            newPacket.transform.position = new Vector2(0, currHeight + nextHeight);
+            currHeight += nextHeight;
+            nextHeight = packets[rnd].GetComponent<PackageHeight>().height;
         }
     }
 
@@ -39,9 +42,12 @@ public class Spawner : MonoBehaviour
                 if (spawnedPackets[i].transform.position.y < -25)
                 {
                     Destroy(spawnedPackets[i]);
-                    spawnedPackets.Remove(spawnedPackets[i]); 
-                    GameObject newPacket = GameObject.Instantiate(packets[Random.Range(1, packets.Count - 1)]);
-                    newPacket.transform.position = new Vector2(0, spawnedPackets[spawnedPackets.Count - 1].transform.position.y + spawnedPackets[spawnedPackets.Count - 1].GetComponent<PackageHeight>().height);
+                    spawnedPackets.Remove(spawnedPackets[i]);
+                    currHeight = spawnedPackets[spawnedPackets.Count - 1].transform.position.y;
+                    nextHeight = spawnedPackets[spawnedPackets.Count - 1].GetComponent<PackageHeight>().height;
+                    int rnd = Random.Range(1, packets.Count - 1);
+                    GameObject newPacket = Instantiate(packets[rnd]);
+                    newPacket.transform.position = new Vector2(0, currHeight + nextHeight);
                     spawnedPackets.Add(newPacket);
                     
                 }
@@ -60,7 +66,7 @@ public class Spawner : MonoBehaviour
                 spawnedPackets[i].transform.position = new Vector2(spawnedPackets[i].transform.position.x, spawnedPackets[i].transform.position.y -  Mathf.Max(5, Player.transform.position.y * 5) * Time.deltaTime);
             }
         }
-        speedSum += 0.00001f;
+        speedSum += 0.00005f;
         
     }
 }

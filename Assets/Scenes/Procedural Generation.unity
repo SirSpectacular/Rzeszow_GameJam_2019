@@ -1175,7 +1175,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1332328195}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
   m_Name: 
@@ -1467,7 +1467,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   packets:
   - {fileID: 1493075025851666360, guid: 23f28c709ce69ed4ca57eed1bc6eeee7, type: 3}
+  - {fileID: 8215013043090894201, guid: e85d1407dd0f83c4ea7b22b12985fe7b, type: 3}
   - {fileID: 1493075025851666360, guid: 23f28c709ce69ed4ca57eed1bc6eeee7, type: 3}
+  - {fileID: 8215013043090894201, guid: e85d1407dd0f83c4ea7b22b12985fe7b, type: 3}
   spawnedPackets: []
   SpawnPoint: {fileID: 1744496918}
   speed: 0.01
@@ -1956,11 +1958,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.4
       objectReference: {fileID: 0}
-    - target: {fileID: 7768836406949529908, guid: 61781b99cab001246bdd7e27f81759b5,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7768836406949529911, guid: 61781b99cab001246bdd7e27f81759b5,
         type: 3}
       propertyPath: m_Size.x
@@ -2055,6 +2052,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[3].value
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7768836406949529908, guid: 61781b99cab001246bdd7e27f81759b5,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61781b99cab001246bdd7e27f81759b5, type: 3}
