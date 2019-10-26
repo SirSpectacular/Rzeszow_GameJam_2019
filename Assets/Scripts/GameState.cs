@@ -18,15 +18,15 @@ public class GameState : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKey(KeyCode.Mouse0))
         {
             timeScale = timeSlow / timeModifier;
         }
-        else if (Input.GetKey(KeyCode.LeftShift))
+        else if (Input.GetKey(KeyCode.Mouse1))
         {
             timeScale = timeFast * timeModifier;
         }
-        else if(Input.GetKeyUp(KeyCode.LeftControl) || Input.GetKeyUp(KeyCode.LeftShift))
+        else if(Input.GetKeyUp(KeyCode.Mouse0) || Input.GetKeyUp(KeyCode.Mouse1))
         {
             timeScale = 1;
         }

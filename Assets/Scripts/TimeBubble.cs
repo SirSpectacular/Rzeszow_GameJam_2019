@@ -7,7 +7,6 @@ public class TimeBubble : MonoBehaviour
     // Start is called before the first frame update
 
     public GameState gameState;
-    private List<GameObject> platforms;
     void Start()
     {
         
@@ -22,10 +21,7 @@ public class TimeBubble : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        collision.gameObject.GetComponent<PlatformMovement>().timeScale = gameState.timeScale;
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        collision.gameObject.GetComponent<PlatformMovement>().timeScale = 1;
+        if (collision.gameObject.GetComponent<PlatformMovement>() != null)
+            collision.gameObject.GetComponent<PlatformMovement>().timeScale = gameState.timeScale;
     }
 }
