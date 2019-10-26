@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 719110048}
   - component: {fileID: 719110049}
   - component: {fileID: 89730340383394678}
-  - component: {fileID: 6955507382310315219}
+  - component: {fileID: 7103372450024271357}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -250,7 +250,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  animator: {fileID: 6955507382310315219}
+  animator: {fileID: 7103372450024271357}
 --- !u!96 &89730340383394678
 TrailRenderer:
   serializedVersion: 2
@@ -347,7 +347,7 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!95 &6955507382310315219
+--- !u!95 &7103372450024271357
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
