@@ -20,7 +20,9 @@ namespace PlatformShift.Move {
         [SerializeField] float shortJumpMultiplayer = 4f;
 
         public UnityEvent onPlatformHit;
+        public UnityEvent onPlatformLeft;
         [SerializeField] public Animator animator;
+        public SpriteRenderer renderer;
 
        
         private bool isOnPlatform = false;
@@ -30,6 +32,7 @@ namespace PlatformShift.Move {
         void Awake() {
             rigidBody = GetComponent<Rigidbody2D>();
             onPlatformHit = new UnityEvent();
+            onPlatformLeft = new UnityEvent();
         }
 
         void Update() {
@@ -53,6 +56,16 @@ namespace PlatformShift.Move {
                 rigidBody.velocity += (Vector2.up * Physics2D.gravity.y * shortJumpMultiplayer * Time.fixedDeltaTime);              
             }
 
+            if (rigidBody.velocity.x < -0.1)
+            {
+                renderer.flipX = true;
+            }
+            if (rigidBody.velocity.x > 0.1)
+            {
+                renderer.flipX = false;
+            }
+
+
 
             float verticalVelocity = rigidBody.velocity.y;
 
@@ -69,7 +82,7 @@ namespace PlatformShift.Move {
             }
          
         }
-
+    
         private void OnCollisionEnter2D(Collision2D collision) {
             transform.SetParent(collision.gameObject.transform);
             onPlatformHit.Invoke();
@@ -77,15 +90,12 @@ namespace PlatformShift.Move {
 
         private void OnCollisionExit2D(Collision2D collision) {
             transform.SetParent(null);
-        }
 
-        private void OnCollisionEnter2D(Collision2D collision) {
-            transform.SetParent(collision.gameObject.transform);
-            onPlatformHit.Invoke();
-        }
+            if (collision.gameObject.GetComponentInParent<FragilePlatform>() != null) {
+                Destroy(collision.gameObject);
+            }
 
-        private void OnCollisionExit2D(Collision2D collision) {
-            transform.SetParent(null);
+            onPlatformLeft.Invoke();
         }
     }
 }
