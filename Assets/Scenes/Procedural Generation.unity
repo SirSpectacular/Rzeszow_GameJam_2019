@@ -767,6 +767,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2201228533465323517, guid: bce03c9c559c1cf45ac30d1ce8d1f668,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2201228533465323517, guid: bce03c9c559c1cf45ac30d1ce8d1f668,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2201228533465323512, guid: bce03c9c559c1cf45ac30d1ce8d1f668,
         type: 3}
       propertyPath: gameState
@@ -1946,6 +1956,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 7768836406949529908, guid: 61781b99cab001246bdd7e27f81759b5,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7768836406949529911, guid: 61781b99cab001246bdd7e27f81759b5,
         type: 3}
       propertyPath: m_Size.x
@@ -2040,11 +2055,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[3].value
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7768836406949529908, guid: 61781b99cab001246bdd7e27f81759b5,
-        type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 61781b99cab001246bdd7e27f81759b5, type: 3}
