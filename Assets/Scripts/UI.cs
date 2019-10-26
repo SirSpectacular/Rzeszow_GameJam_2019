@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UI : MonoBehaviour{
 
     [SerializeField] Fade fade;
+    [SerializeField] Text credits;
+    
 
     public void BeginGame() {
         StartCoroutine("SceneTransition");
@@ -15,6 +18,17 @@ public class UI : MonoBehaviour{
     public void Exit() {
         Application.Quit();
      
+    }
+
+    public void showCredits() {
+        if (!credits.enabled) {
+            credits.enabled = true;
+
+
+        } else {
+            credits.enabled = false;
+            
+        }
     }
  
 
