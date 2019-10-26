@@ -21,7 +21,11 @@ public class Spawner : MonoBehaviour
         {
             newPacket = Instantiate(packets[Random.Range(1, packets.Count - 1)]);
             spawnedPackets.Add(newPacket);
-            newPacket.transform.position = new Vector2(0, spawnedPackets[spawnedPackets.Count - 1].transform.position.y + spawnedPackets[spawnedPackets.Count - 1].GetComponent<PackageHeight>().height * (i+1));
+            if(i != 0)
+                newPacket.transform.position = new Vector2(0, spawnedPackets[spawnedPackets.Count - 1].transform.position.y + spawnedPackets[spawnedPackets.Count - 1].GetComponent<PackageHeight>().height * (1+i));
+            else
+                newPacket.transform.position = new Vector2(0, spawnedPackets[spawnedPackets.Count - 1].transform.position.y + spawnedPackets[spawnedPackets.Count - 1].GetComponent<PackageHeight>().height * (1 + i) -14);
+
         }
     }
 
@@ -32,7 +36,7 @@ public class Spawner : MonoBehaviour
         {
             if(spawnedPackets[i] != null)
             {
-                if (spawnedPackets[i].transform.position.y < -14)
+                if (spawnedPackets[i].transform.position.y < -25)
                 {
                     Destroy(spawnedPackets[i]);
                     spawnedPackets.Remove(spawnedPackets[i]); 
