@@ -78,5 +78,14 @@ namespace PlatformShift.Move {
         private void OnCollisionExit2D(Collision2D collision) {
             transform.SetParent(null);
         }
+
+        private void OnCollisionEnter2D(Collision2D collision) {
+            transform.SetParent(collision.gameObject.transform);
+            onPlatformHit.Invoke();
+        }
+
+        private void OnCollisionExit2D(Collision2D collision) {
+            transform.SetParent(null);
+        }
     }
 }
