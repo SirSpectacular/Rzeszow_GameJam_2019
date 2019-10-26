@@ -13,6 +13,7 @@ public class Fade : MonoBehaviour{
 
 
     public IEnumerator FadeOut(float timeToFade) {
+        canvasGroup.alpha = 0;
         while (!Mathf.Approximately(canvasGroup.alpha, 1)) {
             canvasGroup.alpha = Mathf.MoveTowards(canvasGroup.alpha, 1, Time.deltaTime / timeToFade);
             yield return null;
@@ -20,6 +21,7 @@ public class Fade : MonoBehaviour{
     }
 
     public IEnumerator FadeIn(float timeToFade) {
+        canvasGroup.alpha = 1;
         while (!Mathf.Approximately(canvasGroup.alpha, 0)) {
             canvasGroup.alpha = Mathf.MoveTowards(canvasGroup.alpha, 0, Time.deltaTime / timeToFade);
             yield return null;
