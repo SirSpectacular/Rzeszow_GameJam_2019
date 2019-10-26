@@ -15,7 +15,7 @@ public class GameOver : MonoBehaviour{
 
     IEnumerator EndGame() {
         yield return fade.FadeOut(1f);
-        //gameOverScreen.gameObject.SetActive(true);
+        
         Instantiate<GameObject>(gameOverScreen,new Vector2(0,0), Quaternion.identity);
     }
 }
