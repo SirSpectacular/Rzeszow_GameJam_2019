@@ -9,6 +9,8 @@ public class SceneReload : MonoBehaviour {
     SceneManager.LoadScene(1);
 }
 
+    
+
     public void BackToMenu() {
         print("menu");
         SceneManager.LoadScene(0);
@@ -22,5 +24,6 @@ public class SceneReload : MonoBehaviour {
         if (Input.GetButtonDown("Jump")) {
             Reload();
         }
+        
     }
 }
