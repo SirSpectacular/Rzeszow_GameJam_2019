@@ -20,7 +20,10 @@ namespace PlatformShift.Move {
         [SerializeField] float shortJumpMultiplayer = 4f;
 
         public UnityEvent onPlatformHit;
+<<<<<<< HEAD
         [SerializeField] public Animator animator;
+=======
+>>>>>>> 0b938b1d3bf8410919f0c2e3b3205f9d6bcf0f06
 
        
         private bool isOnPlatform = false;
@@ -38,10 +41,17 @@ namespace PlatformShift.Move {
 
             isOnPlatform = false;
             isOnPlatform = (Physics2D.Raycast(platformCheckPointLeft, -Vector2.up, platformCheckRadious) || Physics2D.Raycast(platformCheckPointRight, -Vector2.up, platformCheckRadious));
+<<<<<<< HEAD
             animator.SetBool("is_grounded", isOnPlatform);
             animator.SetFloat("h_velocity", Math.Abs(rigidBody.velocity.x));
             animator.SetFloat("v_velocity", rigidBody.velocity.y);
                 
+=======
+
+            
+
+
+>>>>>>> 0b938b1d3bf8410919f0c2e3b3205f9d6bcf0f06
         }
 
         public void Move(float horizontalInput, bool jumpInput, bool jumpPressed) {
