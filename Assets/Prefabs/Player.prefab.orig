@@ -235,22 +235,10 @@ MonoBehaviour:
   onPlatformHit:
     m_PersistentCalls:
       m_Calls: []
-  onPlatformLeft:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5483560458149331657, guid: de5a4a6015ec9b041b07639bc33d81c5,
-          type: 3}
-        m_MethodName: DestroyWhenLeft
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+<<<<<<< HEAD
   animator: {fileID: 6955507382310315219}
+=======
+>>>>>>> 0b938b1d3bf8410919f0c2e3b3205f9d6bcf0f06
 --- !u!96 &89730340383394678
 TrailRenderer:
   serializedVersion: 2

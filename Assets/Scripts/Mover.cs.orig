@@ -20,8 +20,10 @@ namespace PlatformShift.Move {
         [SerializeField] float shortJumpMultiplayer = 4f;
 
         public UnityEvent onPlatformHit;
-        public UnityEvent onPlatformLeft;
+<<<<<<< HEAD
         [SerializeField] public Animator animator;
+=======
+>>>>>>> 0b938b1d3bf8410919f0c2e3b3205f9d6bcf0f06
 
        
         private bool isOnPlatform = false;
@@ -31,7 +33,6 @@ namespace PlatformShift.Move {
         void Awake() {
             rigidBody = GetComponent<Rigidbody2D>();
             onPlatformHit = new UnityEvent();
-            onPlatformLeft = new UnityEvent();
         }
 
         void Update() {
@@ -40,10 +41,17 @@ namespace PlatformShift.Move {
 
             isOnPlatform = false;
             isOnPlatform = (Physics2D.Raycast(platformCheckPointLeft, -Vector2.up, platformCheckRadious) || Physics2D.Raycast(platformCheckPointRight, -Vector2.up, platformCheckRadious));
+<<<<<<< HEAD
             animator.SetBool("is_grounded", isOnPlatform);
             animator.SetFloat("h_velocity", Math.Abs(rigidBody.velocity.x));
             animator.SetFloat("v_velocity", rigidBody.velocity.y);
                 
+=======
+
+            
+
+
+>>>>>>> 0b938b1d3bf8410919f0c2e3b3205f9d6bcf0f06
         }
 
         public void Move(float horizontalInput, bool jumpInput, bool jumpPressed) {
@@ -88,12 +96,6 @@ namespace PlatformShift.Move {
 
         private void OnCollisionExit2D(Collision2D collision) {
             transform.SetParent(null);
-
-            if (collision.gameObject.GetComponentInParent<FragilePlatform>() != null) {
-                Destroy(collision.gameObject);
-            }
-
-            onPlatformLeft.Invoke();
         }
     }
 }
