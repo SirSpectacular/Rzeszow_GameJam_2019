@@ -1436,11 +1436,7 @@ PrefabInstance:
     - target: {fileID: 426062622686706332, guid: 5cc4859b6a6ef3b4bbae610edb1ee66b,
         type: 3}
       propertyPath: m_RootOrder
-<<<<<<< HEAD
-      value: 10
-=======
       value: 7
->>>>>>> nidzial
       objectReference: {fileID: 0}
     - target: {fileID: 426062622686706332, guid: 5cc4859b6a6ef3b4bbae610edb1ee66b,
         type: 3}
