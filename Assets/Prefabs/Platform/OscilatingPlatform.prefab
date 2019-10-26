@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePattern: {fileID: 916992682156766291}
-  timeScaleProvider: {fileID: 0}
+  timeScale: 0
   freezed: 0
   baseSpeed: 0.0001
 --- !u!114 &916992682156766291
@@ -213,7 +213,7 @@ Transform:
   m_GameObject: {fileID: 8037620103061763852}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.61207473, y: -3.796241, z: -5.425661}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_Children:
   - {fileID: 2198896640556295363}
   - {fileID: 4986293188982772594}
