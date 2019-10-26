@@ -22,6 +22,7 @@ namespace PlatformShift.Move {
         public UnityEvent onPlatformHit;
         [SerializeField] public Animator animator;
 
+        public UnityEvent onPlatformLeft;
        
         private bool isOnPlatform = false;
         private Rigidbody2D rigidBody = null;
@@ -30,6 +31,7 @@ namespace PlatformShift.Move {
         void Awake() {
             rigidBody = GetComponent<Rigidbody2D>();
             onPlatformHit = new UnityEvent();
+            onPlatformLeft = new UnityEvent();
         }
 
         void Update() {
@@ -41,7 +43,6 @@ namespace PlatformShift.Move {
             animator.SetBool("is_grounded", isOnPlatform);
             animator.SetFloat("h_velocity", Math.Abs(rigidBody.velocity.x));
             animator.SetFloat("v_velocity", rigidBody.velocity.y);
-                
         }
 
         public void Move(float horizontalInput, bool jumpInput, bool jumpPressed) {
@@ -77,6 +78,12 @@ namespace PlatformShift.Move {
 
         private void OnCollisionExit2D(Collision2D collision) {
             transform.SetParent(null);
+
+            if (collision.gameObject.GetComponentInParent<FragilePlatform>() != null) {
+                Destroy(collision.gameObject);
+            }
+
+            onPlatformLeft.Invoke();
         }
 
         private void OnCollisionEnter2D(Collision2D collision) {
