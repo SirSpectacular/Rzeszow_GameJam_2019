@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mover: {fileID: 719110049}
-  runSpeed: 10
+  runSpeed: 6
 --- !u!114 &719110049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7799162fb437c36479dcb4c4f2f79313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 1000
+  jumpForce: 400
   smoothTime: 0.1
   platform:
     serializedVersion: 2
