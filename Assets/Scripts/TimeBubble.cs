@@ -24,4 +24,10 @@ public class TimeBubble : MonoBehaviour
         if (collision.gameObject.GetComponent<PlatformMovement>() != null)
             collision.gameObject.GetComponent<PlatformMovement>().timeScale = gameState.timeScale;
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<PlatformMovement>() != null)
+            collision.gameObject.GetComponent<PlatformMovement>().timeScale = 1;
+    }
 }

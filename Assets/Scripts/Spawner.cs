@@ -21,7 +21,7 @@ public class Spawner : MonoBehaviour
         {
             newPacket = Instantiate(packets[Random.Range(1, packets.Count - 1)]);
             spawnedPackets.Add(newPacket);
-            newPacket.transform.position = new Vector2(0, spawnedPackets[spawnedPackets.Count - 1].transform.position.y + spawnedPackets[spawnedPackets.Count - 1].GetComponent<PackageHeight>().height);
+            newPacket.transform.position = new Vector2(0, spawnedPackets[spawnedPackets.Count - 1].transform.position.y + spawnedPackets[spawnedPackets.Count - 1].GetComponent<PackageHeight>().height * (i+1));
         }
     }
 
@@ -53,7 +53,7 @@ public class Spawner : MonoBehaviour
         {
             for (int i = 0; i < spawnedPackets.Count; i++)
             {
-                spawnedPackets[i].transform.position = new Vector2(spawnedPackets[i].transform.position.x, spawnedPackets[i].transform.position.y - (speed + speedSum) * Mathf.Max(30, Player.transform.position.y * 40) * Time.deltaTime);
+                spawnedPackets[i].transform.position = new Vector2(spawnedPackets[i].transform.position.x, spawnedPackets[i].transform.position.y -  Mathf.Max(5, Player.transform.position.y * 5) * Time.deltaTime);
             }
         }
         speedSum += 0.00001f;
