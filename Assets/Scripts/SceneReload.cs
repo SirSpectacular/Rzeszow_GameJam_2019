@@ -13,4 +13,14 @@ public class SceneReload : MonoBehaviour {
         print("menu");
         SceneManager.LoadScene(0);
     }
+
+
+    private void Update() {
+        if (Input.GetButtonDown("Cancel")) {
+            BackToMenu();
+        }
+        if (Input.GetButtonDown("Jump")) {
+            Reload();
+        }
+    }
 }
