@@ -20,6 +20,7 @@ namespace PlatformShift.Move {
         [SerializeField] float shortJumpMultiplayer = 4f;
 
         public UnityEvent onPlatformHit;
+        public UnityEvent onPlatformLeft;
         [SerializeField] public Animator animator;
 
        
@@ -30,6 +31,7 @@ namespace PlatformShift.Move {
         void Awake() {
             rigidBody = GetComponent<Rigidbody2D>();
             onPlatformHit = new UnityEvent();
+            onPlatformLeft = new UnityEvent();
         }
 
         void Update() {
@@ -86,6 +88,12 @@ namespace PlatformShift.Move {
 
         private void OnCollisionExit2D(Collision2D collision) {
             transform.SetParent(null);
+
+            if (collision.gameObject.GetComponentInParent<FragilePlatform>() != null) {
+                Destroy(collision.gameObject);
+            }
+
+            onPlatformLeft.Invoke();
         }
     }
 }
