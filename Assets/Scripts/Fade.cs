@@ -11,6 +11,14 @@ public class Fade : MonoBehaviour{
         canvasGroup = GetComponent<CanvasGroup>();
     }
 
+    private void Start() {
+        StartCoroutine("StartScene");
+    }
+
+    IEnumerator StartScene() {
+        yield return FadeIn(1f);
+    }
+
 
     public IEnumerator FadeOut(float timeToFade) {
         canvasGroup.alpha = 0;
