@@ -21,6 +21,7 @@ namespace PlatformShift.Controll {
             jumpPressed = Input.GetButton("Jump"); 
 
             if (Input.GetButtonDown("Cancel")) {
+
                 SceneManager.LoadScene(0);
             }
         }

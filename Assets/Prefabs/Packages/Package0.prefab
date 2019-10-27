@@ -459,7 +459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: baa32c72a2cb9594da2ee0aed0bc143d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  height: 12
+  height: 11
 --- !u!1 &1493075026250260161
 GameObject:
   m_ObjectHideFlags: 0
@@ -560,11 +560,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1493075025851666361}
     m_Modifications:
-    - target: {fileID: 936027983538425390, guid: c916efd549d5dd744b00e7c57c8c8609,
-        type: 3}
-      propertyPath: m_Name
-      value: SlidingPlatform
-      objectReference: {fileID: 0}
     - target: {fileID: 936027983538425391, guid: c916efd549d5dd744b00e7c57c8c8609,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -619,6 +614,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 936027983538425390, guid: c916efd549d5dd744b00e7c57c8c8609,
+        type: 3}
+      propertyPath: m_Name
+      value: SlidingPlatform
       objectReference: {fileID: 0}
     - target: {fileID: 2757596771708201552, guid: c916efd549d5dd744b00e7c57c8c8609,
         type: 3}
