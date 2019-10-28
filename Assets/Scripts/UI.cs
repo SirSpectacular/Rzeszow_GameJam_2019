@@ -7,36 +7,57 @@ using UnityEngine.UI;
 public class UI : MonoBehaviour{
 
     [SerializeField] Fade fade;
-    [SerializeField] Text credits;
-    
+    [SerializeField] TextFader title;
+    [SerializeField] TextFader controls;
+    [SerializeField] TextFader credits;
+
+    TextFader currentText;
+
+    private void Start() {
+        currentText = title;
+        currentText.Fade();
+    }
 
     public void BeginGame() {
         StartCoroutine("SceneTransition");
     }
     
-
     public void Exit() {
-        Application.Quit();
-     
+        Application.Quit();    
     }
 
-    public void showCredits() {
-        if (!credits.enabled) {
-            credits.enabled = true;
-
+    public void ShowCredits() {
+        if (currentText == credits) {
+            credits.Fade();
+            title.Fade();
+            currentText = title;
 
         } else {
-            credits.enabled = false;
-            
+            currentText.Fade();
+            credits.Fade();
+            currentText = credits;
         }
     }
- 
+
+    public void ShowControls() {
+        if (currentText == controls) {
+            controls.Fade();
+            title.Fade();
+            currentText = title;
+
+        } else {
+            currentText.Fade();
+            controls.Fade();
+            currentText = controls;
+        }
+    }
+
 
     IEnumerator SceneTransition() {
 
         yield return  fade.FadeOut(1f);
 
-        SceneManager.LoadScene(1);
+        yield return SceneManager.LoadSceneAsync(1);
     }
 
 

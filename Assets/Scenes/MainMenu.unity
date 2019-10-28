@@ -168,7 +168,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -649,5 +649,55 @@ PrefabInstance:
       propertyPath: fade
       value: 
       objectReference: {fileID: 297217309}
+    - target: {fileID: 4847096056407391430, guid: a17160b0f789655448c8bc5b9b668d10,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4847096056407391430, guid: a17160b0f789655448c8bc5b9b668d10,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1952489107737942468, guid: a17160b0f789655448c8bc5b9b668d10,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6781144612942456178, guid: a17160b0f789655448c8bc5b9b668d10,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147850834035444688, guid: a17160b0f789655448c8bc5b9b668d10,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7147850834035444688, guid: a17160b0f789655448c8bc5b9b668d10,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8625800945408645717, guid: a17160b0f789655448c8bc5b9b668d10,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8625800945408645717, guid: a17160b0f789655448c8bc5b9b668d10,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8625800945408645717, guid: a17160b0f789655448c8bc5b9b668d10,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3007669142869073789, guid: a17160b0f789655448c8bc5b9b668d10,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.0200195
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a17160b0f789655448c8bc5b9b668d10, type: 3}
