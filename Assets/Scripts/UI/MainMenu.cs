@@ -4,16 +4,19 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class UI : MonoBehaviour{
+public class MainMenu : MonoBehaviour{
 
-    [SerializeField] Fade fade;
+     
     [SerializeField] TextFader title;
     [SerializeField] TextFader controls;
     [SerializeField] TextFader credits;
 
-    TextFader currentText;
+    TextFader currentText = null;
+    Fade fade = null;
 
     private void Start() {
+        fade = FindObjectOfType<Fade>();
+
         currentText = title;
         currentText.Fade();
     }
